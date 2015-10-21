@@ -82,7 +82,7 @@ function main() {
         });
 
 
-        var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0xffffff}));
+        var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0x426EA2}));
 
         scene.add(line);
       });
