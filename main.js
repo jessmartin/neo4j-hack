@@ -50,7 +50,7 @@ d3.json('county.json', function(data) {
     
 
 
-    light = new THREE.PointLight(0xffffff, x, y);
+    light = new THREE.PointLight(0x304E72, x, y);
     light.position.x = 170;
     light.position.y = -70;
     light.position.z = 50;
@@ -105,7 +105,7 @@ d3.json('county.json', function(data) {
 
       // var material = new THREE.LineBasicMaterial({ color: 0xffffff });
 
-      material = new THREE.MeshLambertMaterial( { color: 0x78D8FF  } );
+      material = new THREE.MeshLambertMaterial( { color: 0x4D9FFF  } );
 
       // var geometry = new THREE.ShapeGeometry(shape);
       var amount;
