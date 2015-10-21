@@ -26,6 +26,14 @@ d3.json('county.json', function(data) {
 
   console.log('features', features);
 
+  light = new THREE.PointLight(0xffffff, x, y);
+  light.position.x = 170;
+  light.position.y = -70;
+  light.position.z = 50;
+  light.intensity = 200;
+
+  scene.add(light);
+
 
   features.forEach(function(feature) {
     var coordinates = feature.geometry.coordinates[0];
@@ -49,7 +57,7 @@ d3.json('county.json', function(data) {
 
     // var material = new THREE.LineBasicMaterial({ color: 0xffffff });
 
-    material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
+    material = new THREE.MeshLambertMaterial( { color: 0xff0000  } );
 
     // var geometry = new THREE.ShapeGeometry(shape);
     var geometry = new THREE.ExtrudeGeometry(shape, { amount: Math.random()*50 });
