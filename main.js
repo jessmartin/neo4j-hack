@@ -35,16 +35,34 @@ d3.json('county.json', function(data) {
     var polygon = coordinates[0];
 
 
-    var geometry = new THREE.Geometry();
-    polygon.forEach(function(coords) {
+    var shape = new THREE.Shape();
+
+    polygon.forEach(function(coords, i) {
       var point = projection(coords);
 
-      geometry.vertices.push(new THREE.Vector3(point[0], -1* point[1], 0))
+      if (i == 0) {
+        shape.moveTo(point[0], -1*point[1], 0);
+      } else {
+        shape.lineTo(point[0], -1*point[1], 0);
+      }
     });
 
-    var material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
-    var line = new THREE.Line(geometry, material);
-    scene.add(line);
+    // var material = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
+
+    // var geometry = new THREE.ShapeGeometry(shape);
+    var geometry = new THREE.ExtrudeGeometry(shape, { amount: 10 });
+
+    mesh = new THREE.Mesh( geometry, material );
+
+    scene.add(mesh);
+
+    // var line = new THREE.Line(geometry, material);
+    // scene.add(line);
+
+    // var shape = new THREE.ExtrudeGeometry(geometry, { amount: 20 });
+    // scene.add(shape);
 
   });
 
