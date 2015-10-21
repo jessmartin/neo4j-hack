@@ -49,10 +49,10 @@ d3.json('county.json', function(data) {
 
     // var material = new THREE.LineBasicMaterial({ color: 0xffffff });
 
-    material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
+    material = new THREE.MeshNormalMaterial( { color: 0xF0C400, side: THREE.DoubleSide, transparent: true, opacity: 0.5 } );
 
     // var geometry = new THREE.ShapeGeometry(shape);
-    var geometry = new THREE.ExtrudeGeometry(shape, { amount: 10 });
+    var geometry = new THREE.ExtrudeGeometry(shape, { amount: Math.random()*15 });
 
     mesh = new THREE.Mesh( geometry, material );
 
