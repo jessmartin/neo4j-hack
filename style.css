@@ -5,7 +5,8 @@ body {
 }
 
 h1 {
-  color: #fff;
+  color: rgba(255,255,255,0.6);
+  text-shadow: #426EA2 2px 2px 1px;
   background-color: #000;
   margin: 100px 0 0;
   padding: 0;
