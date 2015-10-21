@@ -14,24 +14,22 @@ $(document).ready(function(){
 });
 main();
 
-
-var renderer = new THREE.WebGLRenderer();
-var height = window.innerHeight;
-renderer.setSize( window.innerWidth, height);
-document.body.appendChild( renderer.domElement );
-
-var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
-
-var x = 170;
-var y = -70;
-
-camera.position.set(x, y-200, 400);
-camera.lookAt(new THREE.Vector3(x, y, 0));
-
-var scene = new THREE.Scene();
-
-
 function main() {
+  var renderer = new THREE.WebGLRenderer();
+  var height = window.innerHeight;
+  renderer.setSize( window.innerWidth, height);
+  document.body.appendChild( renderer.domElement );
+
+  var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+
+  var x = 170;
+  var y = -70;
+
+  camera.position.set(x, y-200, 400);
+  camera.lookAt(new THREE.Vector3(x, y, 0));
+
+  var scene = new THREE.Scene();
+
   d3.json('county.json', function(data) {
     d3.csv('data.csv', function(bigbigdata) {
       console.log("big!",bigbigdata[0]);
