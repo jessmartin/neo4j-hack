@@ -77,6 +77,6 @@ d3.json('county.json', function(data) {
 
   // console.log('result', result);
 
-  
 
-})
+
+});
