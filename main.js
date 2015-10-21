@@ -9,9 +9,11 @@ $(document).ready(function(){
     currYear = yearMonth[1];
     console.log(currMonth);
     console.log(currYear);
+    clean();
     main();
   });
 });
+
 main();
 
 function main() {
@@ -148,4 +150,8 @@ function main() {
 
     // console.log('result', result);
   });
+}
+
+function clean() {
+  $('canvas').remove();
 }
