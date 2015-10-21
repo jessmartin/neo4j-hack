@@ -1,11 +1,16 @@
 
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
+var height = window.innerHeight;
+renderer.setSize( window.innerWidth, height);
 document.body.appendChild( renderer.domElement );
 
 var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
-camera.position.set(0, 0, 200);
-camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+var x = 170;
+var y = -70;
+
+camera.position.set(x, y-200, 400);
+camera.lookAt(new THREE.Vector3(x, y, 0));
 
 var scene = new THREE.Scene();
 
@@ -34,10 +39,10 @@ d3.json('county.json', function(data) {
     polygon.forEach(function(coords) {
       var point = projection(coords);
 
-      geometry.vertices.push(new THREE.Vector3(point[0], point[1], 0))
+      geometry.vertices.push(new THREE.Vector3(point[0], -1* point[1], 0))
     });
 
-    var material = new THREE.LineBasicMaterial({ color: 0xffffff });
+    var material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
     var line = new THREE.Line(geometry, material);
     scene.add(line);
 
