@@ -50,7 +50,7 @@ d3.json('county.json', function(data) {
     
 
 
-    light = new THREE.PointLight(0x304E72, x, y);
+    light = new THREE.PointLight(0xffffff, x, y);
     light.position.x = 170;
     light.position.y = -70;
     light.position.z = 50;
@@ -72,7 +72,7 @@ d3.json('county.json', function(data) {
       });
 
 
-      var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0xffffff}));
+      var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0x426EA2}));
 
       scene.add(line);
     });
