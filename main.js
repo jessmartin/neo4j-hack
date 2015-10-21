@@ -1,3 +1,11 @@
+var currSelection = '07-14';
+$(document).ready(function(){
+  $('.selButton').click(function(event){
+    console.log('Button clicked: ', event);
+    currSelection = event.currentTarget.value;
+  });
+});
+
 
 var renderer = new THREE.WebGLRenderer();
 var height = window.innerHeight;
