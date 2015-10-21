@@ -1,4 +1,4 @@
-y.year,m.month,z.zip,sum(c.amount)
+Year,Month,Zip,Amount
 2014,7,70003,201
 2014,7,43016,250
 2014,7,33912,500
