@@ -39,7 +39,7 @@ d3.json('county.json', function(data) {
     polygon.forEach(function(coords) {
       var point = projection(coords);
 
-      geometry.vertices.push(new THREE.Vector3(point[0], -1* point[1], 0))
+      geometry.vertices.push(new THREE.Vector3(point[0], -1* point[1], 0));
     });
 
     var material = new THREE.MeshBasicMaterial( { color: 0xF0C400, side: THREE.DoubleSide } );
