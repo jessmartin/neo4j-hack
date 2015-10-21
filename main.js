@@ -39,15 +39,8 @@ d3.json('county.json', function(data) {
 
     var scale  = d3.scale.linear().domain([0, 130000]).range([0, 100]);
 
-    features = features.filter(function(f) {
-      return dict[f.id];
-    });
+    
 
-    console.log('features with data', features.length);
-
-    // features = features.slice(0, 1000);
-
-    console.log('features', features);
 
     light = new THREE.PointLight(0xffffff, x, y);
     light.position.x = 170;
@@ -55,12 +48,32 @@ d3.json('county.json', function(data) {
     light.position.z = 50;
     light.intensity = 1.5;
 
-    scene.add(light);
 
     features.forEach(function(feature) {
-      
-    })
+      var coordinates = feature.geometry.coordinates[0];
+      if (!coordinates) {
+        return;
+      }
+      var polygon = coordinates[0];
+      var geometry = new THREE.Geometry();
 
+      polygon.forEach(function(coords, i) {
+        var point = projection(coords);
+
+        geometry.vertices.push(new THREE.Vector3(point[0], -1*point[1], 0));
+      });
+
+
+      var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0xffffff}));
+
+      scene.add(line);
+    });
+
+    features = features.filter(function(f) {
+      return dict[f.id];
+    });
+
+    scene.add(light);
 
     features.forEach(function(feature) {
       var coordinates = feature.geometry.coordinates[0];
